@@ -227,7 +227,6 @@ public class FormDaftar extends javax.swing.JFrame {
             jenisKelamin = radioPr.getText();
         }
         
-        // Get selected hobbies
         StringBuilder hobbies = new StringBuilder();
         if (jCheckBoxHobby1.isSelected()) {
             hobbies.append(jCheckBoxHobby1.getText()).append(", ");
@@ -239,7 +238,6 @@ public class FormDaftar extends javax.swing.JFrame {
             hobbies.append(jCheckBoxHobby3.getText());
         }
         
-        // Validate phone number
         String phoneNumber = fieldPhoneNumber.getText();
         try {
             Long.parseLong(phoneNumber);
@@ -248,7 +246,6 @@ public class FormDaftar extends javax.swing.JFrame {
             return;
         }
         
-        // Validate birth date and age
         String birthDate = fieldBirthDate.getText();
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -271,7 +268,6 @@ public class FormDaftar extends javax.swing.JFrame {
             return;
         }
         
-        // Validate IPK
         String ipkStr = fieldIPK.getText();
         try {
             double ipk = Double.parseDouble(ipkStr);
@@ -284,17 +280,14 @@ public class FormDaftar extends javax.swing.JFrame {
             return;
         }
         
-        // Check if all fields are filled
         if (NIK.isEmpty() || nama.isEmpty() || alamat.isEmpty() || jenisKelamin == null || 
             phoneNumber.isEmpty() || birthDate.isEmpty() || ipkStr.isEmpty()) {
             showMessageDialog(null, "Semua field harus diisi!");
             return;
         }
         
-        // If all validations pass, show success message
         showMessageDialog(null, "Anda berhasil mendaftar");
         
-        // Clear all fields
         fieldNIK.setText("");
         fieldNama.setText("");
         fieldAlamat.setText("");
